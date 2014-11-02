@@ -29,14 +29,14 @@
 
   - name: Removing tmp folder
     sudo: yes
-    shell: "chmod -R 777 sites/default && rm -rf sites/default/files && rm -f sites/default/services.yml"
+    shell: "chmod -R 777 /var/www/drupal/sites/default && rm -rf sites/default/files && rm -f /var/www/drupal/sites/default/services.yml"
 
   - name: Cooking defaults
     sudo: yes
-    shell: "cp sites/default/default.services.yml sites/default/services.yml"
+    shell: "cp /var/www/drupal/sites/default/default.services.yml /var/www/drupal/sites/default/services.yml"
 
   - name: Installing drupal
     sudo: yes
-    shell: "{{ php_env_vars}} drush -y si {{ installation_profile_name }} --db-url=mysql://{{ mysql_user }}:{{ mysql_pass }}@127.0.0.1:/{{ mysql_db }} --account-name={{ drupal_user }} --account-pass={{ drupal_pass }}"
+    shell: "{{ php_env_vars}} cd /var/www/drupal && drush -y si {{ installation_profile_name }} --db-url=mysql://{{ mysql_user }}:{{ mysql_pass }}@127.0.0.1:/{{ mysql_db }} --account-name={{ drupal_user }} --account-pass={{ drupal_pass }}"
 
   handlers:

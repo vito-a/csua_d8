@@ -30,10 +30,11 @@ vagrantfile-local:
                     - '--parser future'
         synced_folder:
             8Q9vTs08YuK2:
+                id: vagrant-root
                 source: ./
                 target: /var/www
                 nfs: 'true'
-        usable_port_range: 2200..2250
+          usable_port_range: 2200..2250
     ssh:
         host: null
         port: null

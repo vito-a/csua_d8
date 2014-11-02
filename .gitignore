@@ -1,3 +1,11 @@
 # Ignore configuration files that may contain sensitive information.
 .idea
 .vagrant
+drupal/sites/*/settings*.php
+drupal/sites/*/files
+drupal/sites/*/private
+drupal/sites/default/*
+*.ppk
+adminer
+cache
+index.html
